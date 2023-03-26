@@ -1,3 +1,3 @@
-export const EASY = 1;
-export const NORMAL = 2;
-export const HARD = 3;
+export const EASY = 0;
+export const NORMAL = 1;
+export const HARD = 2;
