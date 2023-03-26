@@ -1,5 +1,5 @@
 import _ from "lodash";
-import {CARD_NUMBER_MAX, CARD_SUIT_MAX} from "constants";
+import {CARD_NUMBER_MAX} from "constants";
 import {POOL} from "constants/Pool";
 import * as SUITS from "constants/Suit";
 import Card from "components/Card";
