@@ -1,0 +1,108 @@
+@import "variables";
+
+$cardContainerPadding: 0 0;
+$cardFlex: 1 1 calc(100% / 14);
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.CardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  padding: $cardContainerPadding;
+  gap: $gap;
+
+  .Card {
+    position: relative;
+    display: flex;
+    flex: $cardFlex;
+    height: 220px;
+    border-radius: 10px;
+    background: #f0f0f0;
+    border: 1px solid #333;
+
+    .Icon {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 5px;
+
+      &.Top {
+        top: 0;
+        left: 0;
+        margin: 5px;
+      }
+
+      &.Bottom {
+        bottom: 0;
+        right: 0;
+        transform: rotate(180deg);
+      }
+    }
+
+    .Background {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+
+      &:after {
+        content: "+";
+      }
+    }
+  }
+}
+
+.Menu {
+  display: flex;
+}
+
+.Modal {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  z-index: 9999;
+
+  &.invisible {
+    display: none;
+  }
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.MenuModal {
+  width: 200px;
+  height: 200px;
+  background: #fff;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.Home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Settings {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
