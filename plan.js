@@ -4,68 +4,68 @@
 
 /*
  * 조합가능한 풀:
- * 1 set 선택시 pool[0-13] * 8번 반복
- * 2 set 선택시 pool[0-26] * 4번 반복
- * 4 set 선택시 pool 전체 * 2번 반복
+ * 1 set 선택시 spade * 8번 반복
+ * 2 set 선택시 (spade, heart) * 4번 반복
+ * 4 set 선택시 (spade, heart, clobe, dia) * 2번 반복
 
  * TODO: 숫자: 1 11 12 13 view단에서 ajqk로 보이게 바꾸기
  * faceUp: true - 카드 앞면 false - 뒷면
  * movable: 카드 이동 가능 여부
- * 카드개수 : 104개
+ * 카드개수 : 104개 (13 * 8)
  */
 pool = [
-  { number: 1, suit: "dia", faceUp: false, movable: false },
-  { number: 2, suit: "dia", faceUp: false, movable: false },
-  { number: 3, suit: "dia", faceUp: false, movable: false },
-  { number: 4, suit: "dia", faceUp: false, movable: false },
-  { number: 5, suit: "dia", faceUp: false, movable: false },
-  { number: 6, suit: "dia", faceUp: false, movable: false },
-  { number: 7, suit: "dia", faceUp: false, movable: false },
-  { number: 8, suit: "dia", faceUp: false, movable: false },
-  { number: 9, suit: "dia", faceUp: false, movable: false },
-  { number: 10, suit: "dia", faceUp: false, movable: false },
-  { number: 11, suit: "dia", faceUp: false, movable: false },
-  { number: 12, suit: "dia", faceUp: false, movable: false },
-  { number: 13, suit: "dia", faceUp: false, movable: false },
-  { number: 1, suit: "heart", faceUp: false, movable: false },
-  { number: 2, suit: "heart", faceUp: false, movable: false },
-  { number: 3, suit: "heart", faceUp: false, movable: false },
-  { number: 4, suit: "heart", faceUp: false, movable: false },
-  { number: 5, suit: "heart", faceUp: false, movable: false },
-  { number: 6, suit: "heart", faceUp: false, movable: false },
-  { number: 7, suit: "heart", faceUp: false, movable: false },
-  { number: 8, suit: "heart", faceUp: false, movable: false },
-  { number: 9, suit: "heart", faceUp: false, movable: false },
-  { number: 10, suit: "heart", faceUp: false, movable: false },
-  { number: 11, suit: "heart", faceUp: false, movable: false },
-  { number: 12, suit: "heart", faceUp: false, movable: false },
-  { number: 13, suit: "heart", faceUp: false, movable: false },
-  { number: 1, suit: "spade", faceUp: false, movable: false },
-  { number: 2, suit: "spade", faceUp: false, movable: false },
-  { number: 3, suit: "spade", faceUp: false, movable: false },
-  { number: 4, suit: "spade", faceUp: false, movable: false },
-  { number: 5, suit: "spade", faceUp: false, movable: false },
-  { number: 6, suit: "spade", faceUp: false, movable: false },
-  { number: 7, suit: "spade", faceUp: false, movable: false },
-  { number: 8, suit: "spade", faceUp: false, movable: false },
-  { number: 9, suit: "spade", faceUp: false, movable: false },
-  { number: 10, suit: "spade", faceUp: false, movable: false },
-  { number: 11, suit: "spade", faceUp: false, movable: false },
-  { number: 12, suit: "spade", faceUp: false, movable: false },
-  { number: 13, suit: "spade", faceUp: false, movable: false },
-  { number: 1, suit: "clobe", faceUp: false, movable: false },
-  { number: 2, suit: "clobe", faceUp: false, movable: false },
-  { number: 3, suit: "clobe", faceUp: false, movable: false },
-  { number: 4, suit: "clobe", faceUp: false, movable: false },
-  { number: 5, suit: "clobe", faceUp: false, movable: false },
-  { number: 6, suit: "clobe", faceUp: false, movable: false },
-  { number: 7, suit: "clobe", faceUp: false, movable: false },
-  { number: 8, suit: "clobe", faceUp: false, movable: false },
-  { number: 9, suit: "clobe", faceUp: false, movable: false },
-  { number: 10, suit: "clobe", faceUp: false, movable: false },
-  { number: 11, suit: "clobe", faceUp: false, movable: false },
-  { number: 12, suit: "clobe", faceUp: false, movable: false },
-  { number: 13, suit: "clobe", faceUp: false, movable: false },
+  {number: 1, suit: "dia", faceUp: false, movable: false},
+  {number: 2, suit: "dia", faceUp: false, movable: false},
+  {number: 3, suit: "dia", faceUp: false, movable: false},
+  {number: 4, suit: "dia", faceUp: false, movable: false},
+  {number: 5, suit: "dia", faceUp: false, movable: false},
+  {number: 6, suit: "dia", faceUp: false, movable: false},
+  {number: 7, suit: "dia", faceUp: false, movable: false},
+  {number: 8, suit: "dia", faceUp: false, movable: false},
+  {number: 9, suit: "dia", faceUp: false, movable: false},
+  {number: 10, suit: "dia", faceUp: false, movable: false},
+  {number: 11, suit: "dia", faceUp: false, movable: false},
+  {number: 12, suit: "dia", faceUp: false, movable: false},
+  {number: 13, suit: "dia", faceUp: false, movable: false},
+  {number: 1, suit: "heart", faceUp: false, movable: false},
+  {number: 2, suit: "heart", faceUp: false, movable: false},
+  {number: 3, suit: "heart", faceUp: false, movable: false},
+  {number: 4, suit: "heart", faceUp: false, movable: false},
+  {number: 5, suit: "heart", faceUp: false, movable: false},
+  {number: 6, suit: "heart", faceUp: false, movable: false},
+  {number: 7, suit: "heart", faceUp: false, movable: false},
+  {number: 8, suit: "heart", faceUp: false, movable: false},
+  {number: 9, suit: "heart", faceUp: false, movable: false},
+  {number: 10, suit: "heart", faceUp: false, movable: false},
+  {number: 11, suit: "heart", faceUp: false, movable: false},
+  {number: 12, suit: "heart", faceUp: false, movable: false},
+  {number: 13, suit: "heart", faceUp: false, movable: false},
+  {number: 1, suit: "spade", faceUp: false, movable: false},
+  {number: 2, suit: "spade", faceUp: false, movable: false},
+  {number: 3, suit: "spade", faceUp: false, movable: false},
+  {number: 4, suit: "spade", faceUp: false, movable: false},
+  {number: 5, suit: "spade", faceUp: false, movable: false},
+  {number: 6, suit: "spade", faceUp: false, movable: false},
+  {number: 7, suit: "spade", faceUp: false, movable: false},
+  {number: 8, suit: "spade", faceUp: false, movable: false},
+  {number: 9, suit: "spade", faceUp: false, movable: false},
+  {number: 10, suit: "spade", faceUp: false, movable: false},
+  {number: 11, suit: "spade", faceUp: false, movable: false},
+  {number: 12, suit: "spade", faceUp: false, movable: false},
+  {number: 13, suit: "spade", faceUp: false, movable: false},
+  {number: 1, suit: "clobe", faceUp: false, movable: false},
+  {number: 2, suit: "clobe", faceUp: false, movable: false},
+  {number: 3, suit: "clobe", faceUp: false, movable: false},
+  {number: 4, suit: "clobe", faceUp: false, movable: false},
+  {number: 5, suit: "clobe", faceUp: false, movable: false},
+  {number: 6, suit: "clobe", faceUp: false, movable: false},
+  {number: 7, suit: "clobe", faceUp: false, movable: false},
+  {number: 8, suit: "clobe", faceUp: false, movable: false},
+  {number: 9, suit: "clobe", faceUp: false, movable: false},
+  {number: 10, suit: "clobe", faceUp: false, movable: false},
+  {number: 11, suit: "clobe", faceUp: false, movable: false},
+  {number: 12, suit: "clobe", faceUp: false, movable: false},
+  {number: 13, suit: "clobe", faceUp: false, movable: false},
 ];
 
 //화면에 뿌려진 카드
@@ -91,8 +91,8 @@ assembledCnt = 0;
 // 총 104개
 
 // 2. 뿌리기
-// 뿌리기 눌렀을 떄 빈슬롯이 있는지 확인해서 없어야 뿌릴 수 있음 (displayed  리스트 내부 리스트에서 빈 리스트가 있으면 안됨) 
-// 뿌릴때마다 undisplayed 리스트에서 하나씩 지우고 마지막으로 리스트가 비어있으면 더이상 뿌릴게 없음. 
+// 뿌리기 눌렀을 떄 빈슬롯이 있는지 확인해서 없어야 뿌릴 수 있음 (displayed  리스트 내부 리스트에서 빈 리스트가 있으면 안됨)
+// 뿌릴때마다 undisplayed 리스트에서 하나씩 지우고 마지막으로 리스트가 비어있으면 더이상 뿌릴게 없음.
 
 // 2. 옮겨놓으면 마지막 인덱스인 애들 중 한단계 위로만(k는 적용대상이아님) / 없으면 빈 슬롯에만 이동 가능
 // 클릭하면 (
@@ -104,7 +104,6 @@ assembledCnt = 0;
 
 // 4. 힌트 줄 수 있음
 // 5. 뒤로, 앞으로 무한대로 이동 가능
-
 
 // 7. 리스트를 끝에서 반대방향으로 순회해서
 // 마지막에 있는 애의 모양과 다르게 나오면
