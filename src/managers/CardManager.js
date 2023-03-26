@@ -1,5 +1,6 @@
 import _ from "lodash";
 import {CARD_NUMBER_MAX, CARD_SUIT_MAX} from "constants";
+import {POOL} from "constants/Pool";
 import * as SUITS from "constants/Suit";
 import Card from "components/Card";
 
@@ -13,23 +14,19 @@ export default class CardManager {
   }
 
   generateCardPool(level) {
-    const levels = Array(level).fill(0);
-    const suits = Array(CARD_SUIT_MAX).fill(0);
+    const pool = POOL[level];
     const cards = Array(CARD_NUMBER_MAX).fill(0);
-    this.cards = levels.map((l, li) =>
-      suits.map((s, si) =>
-        cards.map((c, ci) => {
-          return (
-            <Card
-              key={`${li}_${ci}_${si}`}
-              level={li}
-              number={ci}
-              suit={_.entries(SUITS)[si][1]}
-            />
-          );
-        })
-      )
-    );
+    this.cards = pool.map((p, pi) => {
+      return cards.map((c, ci) => {
+        return (
+          <Card
+            key={`${pi}_${ci}`}
+            number={ci}
+            suit={_.entries(SUITS)?.[p]?.[1]}
+          />
+        );
+      });
+    });
   }
 
   getCards() {

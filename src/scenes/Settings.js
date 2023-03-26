@@ -8,12 +8,12 @@ const Settings = () => {
   return (
     <div className="Settings">
       <h3>Setting Page</h3>
-      {_.entries(levels).map((l, i) => {
+      {_.sortBy(_.entries(levels), 1).map((l, i) => {
         return (
           <button
             key={l}
-            onClick={() => dispatch(setLevel(i))}>
-            {l[0]}
+            onClick={() => dispatch(setLevel(l[1]))}>
+            {l[1]} - {l[0]}
           </button>
         );
       })}
