@@ -1,23 +1,15 @@
-import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "assets/css/styles.css";
-import Home from "pages/Home";
-import Game from "pages/Game";
-import Setting from "pages/Setting";
+import "assets/styles/common.scss";
+import {BrowserRouter} from "react-router-dom";
+import * as Layouts from "layouts";
 
 function App() {
   return (
-    <div className="App">
+    <Layouts.App>
       <BrowserRouter>
-        <header className="App-header">
-        </header>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/game" element={<Game />} />
-          <Route path="/setting" element={<Setting />} />
-        </Routes>
+        <Layouts.Head />
+        <Layouts.Body />
       </BrowserRouter>
-    </div>
+    </Layouts.App>
   );
 }
 
