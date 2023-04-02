@@ -5,7 +5,7 @@ import * as Color from "constants/Color";
 import * as SUITS from "constants/Suit";
 
 const CardSuit = ({id}) => {
-  const suit = Object.keys(SUITS).find(k=> SUITS[k] === id)
+  const suit = _.sortBy(_.entries(SUITS), 1)?.[id]?.[0];
   const SuitIcon = Unicons["Uil" + _.upperFirst(suit.toLowerCase())];
   const Suitcolor = Color[suit];
   return <>{React.createElement(SuitIcon, {color: Suitcolor})}</>;
