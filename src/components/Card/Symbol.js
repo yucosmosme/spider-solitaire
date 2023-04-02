@@ -4,8 +4,11 @@ const Symbol = (props) => {
   return (
     <>
       <div className={`Icon ${props.position}`}>
-        <label>{props.number + 1}</label>
-        <Suit id={props.suit} />
+        <label style={{color: props.color}}>{props.number + 1}</label>
+        <Suit
+          suit={props.suit}
+          color={props.color}
+        />
       </div>
     </>
   );

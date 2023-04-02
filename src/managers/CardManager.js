@@ -1,4 +1,3 @@
-import _ from "lodash";
 import {CARD_NUMBER_MAX} from "constants";
 import {POOL} from "constants/Pool";
 import Card from "components/Card";
