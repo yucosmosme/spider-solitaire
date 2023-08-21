@@ -13,14 +13,17 @@ export default class CardManager {
 
   generateCardPool(level) {
     const pool = POOL[level]; //세트 개수 EX. [0,0,0,0,1,1,1,1]
-    const cards = Array(CARD_NUMBER_MAX).fill(0); // 한 세트에 들어가는 카드 개수 EX. [0,0,0,0,0,0,0,0,0,0,0,0,0] 
-    this.cards = pool.map((p, pi) => {
-      return cards.map((c, ci) => {
-        return (
+    const cards = Array(CARD_NUMBER_MAX).fill(0); // [0,0,0,0,0,0,0,0,0,0,0,0,0]
+
+    pool.forEach((p, pi) => {
+      cards.forEach((c, ci) => {
+        this.cards.push(
           <Card
             key={`${pi}_${ci}`}
             number={ci} //카드 숫자
-            suit={p} //카드 모양 
+            suit={p} //카드 모양
+            faceUp={false}
+            movable={false}
           />
         );
       });
@@ -28,6 +31,12 @@ export default class CardManager {
   }
 
   getCards() {
+    //console.log("card", this.cards);
+    this.cards = this.cards.sort(() => Math.random() - 0.5);
     return this.cards;
   }
+
+  //카드를 슬롯에 깐다.
+
+  //카드를 분배한다.
 }

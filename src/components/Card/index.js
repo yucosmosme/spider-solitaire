@@ -11,7 +11,7 @@ const Card = ({number, suit, faceUp, movable}) => {
 
   return (
     <>
-      <div className="Card">
+      <div className={`Card ${faceUp ? "" : "face-down"}`}>
         <Symbol
           number={number}
           suit={suitValue}

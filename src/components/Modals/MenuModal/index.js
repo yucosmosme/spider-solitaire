@@ -15,6 +15,7 @@ const MenuModal = (props) => {
         <ul>
           <li onClick={() => go("/")}>Home</li>
           <li onClick={() => props.close}>Resume</li>
+          <li onClick={() => go("/play")}>Play</li>
           <li onClick={() => go("/settings")}>Settings</li>
           <li onClick={() => go("/")}>Exit</li>
         </ul>
