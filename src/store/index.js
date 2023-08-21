@@ -7,6 +7,7 @@ const logger = createLogger();
 
 const rootReducer = combineReducers({
   level: slices.levelSlice.reducer,
+  image: slices.imageSlice.reducer,
 });
 
 const initialState = {};

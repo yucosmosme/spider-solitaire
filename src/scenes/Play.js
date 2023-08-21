@@ -36,7 +36,9 @@ const Play = () => {
       <div className="CardSetWrap">
         {homeCards.map((c, i) => {
           return (
-            <div className={`CardSet CardSet_${i}`}>
+            <div
+              className={`CardSet CardSet_${i}`}
+              key={i}>
               {c &&
                 c.map((cc, idx) => {
                   return <CardContainer key={idx}>{cc}</CardContainer>;
