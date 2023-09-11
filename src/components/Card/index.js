@@ -14,7 +14,7 @@ const Card = ({number, suit, faceUp, movable}) => {
   return (
     <>
       <div
-        className={`Card ${faceUp ? "" : "face-down"}`}
+        className={`Card ${faceUp ? "face-up" : "face-down"}`}
         style={{backgroundImage: `url(${image})`}}>
         <Symbol
           number={number}

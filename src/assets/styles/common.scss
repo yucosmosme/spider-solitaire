@@ -2,54 +2,89 @@
 
 $cardContainerPadding: 0 0;
 $cardFlex: 1 1 calc(100% / 14);
+$minWidth: 60px;
+$cardHeight: $minWidth * 1.5;
 
+body,
+#root,
+.App {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
+  height: 60px;
+}
+.Body {
+  margin-top: 60px;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.BodyMain {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .CardSetWrap {
+  flex: 0 0 150px;
   position: relative;
-  left: 10px;
-  bottom: 10px;
 }
 .CardSet {
-  // display: flex;
   position: absolute;
   top: 0;
   left: 0;
   width: 11%;
-  // flex: $cardFlex;
-  min-width: 100px;
+  min-width: $minWidth;
   max-width: 300px;
-  height: 220px;
-  // flex-wrap: wrap;
+  height: $cardHeight;
   padding: $cardContainerPadding;
   gap: $gap;
 }
+
+.PlaySetWrap {
+  flex: 1 1 auto;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: $gap;
+}
+.PlaySet {
+  display: flex;
+  flex: 1 1 auto;
+  position: relative;
+}
+.PlayCard {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: $minWidth;
+  max-width: 300px;
+  height: $cardHeight;
+  padding: $cardContainerPadding;
+  gap: $gap;
+}
+
 @for $i from 1 through 100 {
-  .CardSet_#{$i} {
+  .CardNo_#{$i} {
     top: $i * 5px;
   }
 }
+
 .CardContainer {
-  // display: flex;
-  // flex-wrap: wrap;
-  // padding: $cardContainerPadding;
-  // gap: $gap;
-  top: 0;
-  left: 0;
   position: inherit;
   width: 100%;
   height: 100%;
 }
 .Card {
   position: relative;
-  // display: flex;
-  // flex: $cardFlex;
-  // height: 220px;
   height: inherit;
   width: inherit;
   border-radius: $borderRadius;
@@ -65,20 +100,17 @@ header {
     justify-content: center;
     align-items: center;
     margin: 5px;
-
     &.Top {
       top: 0;
       left: 0;
       margin: 5px;
     }
-
     &.Bottom {
       bottom: 0;
       right: 0;
       transform: rotate(180deg);
     }
   }
-
   .Background {
     display: flex;
     flex-direction: column;
@@ -90,6 +122,9 @@ header {
   }
   &.face-down > * {
     visibility: hidden;
+  }
+  &.face-up {
+    background-image: none !important;
   }
 }
 
