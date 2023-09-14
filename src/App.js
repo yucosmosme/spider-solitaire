@@ -6,8 +6,9 @@ function App() {
   return (
     <Layouts.App>
       <BrowserRouter>
-        <Layouts.Head />
+        <Layouts.Header />
         <Layouts.Body />
+        <Layouts.Footer />
       </BrowserRouter>
     </Layouts.App>
   );

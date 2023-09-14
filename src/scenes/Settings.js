@@ -37,7 +37,7 @@ const Settings = () => {
               className={`Img ${image === m ? "active" : ""}`}
               key={i}
               onClick={() => dispatch(setImage(m))}>
-              <img src={m} />
+              <img src={m} alt=""/>
             </div>
           );
         })}

@@ -1,57 +1,117 @@
 @import "variables";
 
-$cardContainerPadding: 0 0;
-$cardFlex: 1 1 calc(100% / 14);
-$minWidth: 60px;
-$cardHeight: $minWidth * 1.5;
+$headerHeight: 60px;
+$footerHeight: 60px;
+$cardWidth: calc(100vw / 15);
+$cardHeight: calc(#{$cardWidth} * 1.5);
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
 
 body,
 #root,
 .App {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  position: relative;
+  box-sizing: border-box;
+  height: 100%;
+  min-height: 100%;
 }
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  cursor: pointer;
+  outline: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+input:focus {
+  outline: none;
+}
+
 header {
+  background-color: beige;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: $headerHeight;
+  z-index: 99;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
-  height: 60px;
-}
-.Body {
-  margin-top: 60px;
-  height: 100%;
-  width: 100%;
-  position: relative;
-}
-.BodyMain {
-  position: relative;
-  display: flex;
-  flex-wrap: nowrap;
 }
 
-.CardSetWrap {
-  flex: 0 0 150px;
+footer {
+  background-color: rgb(245, 220, 228);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: $footerHeight;
+  z-index: 98;
+  padding: 0 20px;
+}
+
+section {
+  background-color: antiquewhite;
+  position: relative;
+  height: inherit;
+  padding-top: $headerHeight + 20;
+  padding-bottom: $footerHeight + 20;
+  padding-left: 20px;
+  padding-right: 20px;
+  &.Body {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    gap: 20px;
+  }
+}
+
+article.CardSetWrap {
+  display: flex;
+  flex: 1 1 0;
   position: relative;
 }
 .CardSet {
+  background-color: rgb(151, 172, 172);
   position: absolute;
   top: 0;
   left: 0;
-  width: 11%;
-  min-width: $minWidth;
+  width: $cardWidth;
   max-width: 300px;
   height: $cardHeight;
-  padding: $cardContainerPadding;
+  padding: 0 0;
   gap: $gap;
 }
 
-.PlaySetWrap {
-  flex: 1 1 auto;
+article.PlaySetWrap {
+  background-color: rgb(204, 193, 221);
   display: flex;
+  flex: 10 1 0;
   flex-wrap: nowrap;
   justify-content: center;
   gap: $gap;
@@ -65,10 +125,10 @@ header {
   position: absolute;
   top: 0;
   left: 0;
-  min-width: $minWidth;
+  width: $cardWidth;
   max-width: 300px;
   height: $cardHeight;
-  padding: $cardContainerPadding;
+  padding: 0 0;
   gap: $gap;
 }
 
@@ -93,6 +153,11 @@ header {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  font-size: 0.5vw;
+  svg {
+    width: 2vw;
+    height: 2vw;
+  }
   .Icon {
     position: absolute;
     display: flex;

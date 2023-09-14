@@ -4,6 +4,7 @@ import CardContainer from "components/CardContainer";
 import {useState} from "react";
 import {useEffect} from "react";
 import {cloneDeep} from "lodash";
+import Draggable, {DraggableCore} from 'react-draggable'; // Both at the same time
 
 const Play = () => {
   const level = useAppSelector((s) => s.level.value);
@@ -44,7 +45,7 @@ const Play = () => {
     let copied = cloneDeep(playCards);
     let isUdated = false;
 
-    copied.map((c) => {
+    copied.forEach((c) => {
       let last = c.slice(-1)[0];
 
       if (!last[0]["props"]["faceUp"]) {
@@ -57,48 +58,71 @@ const Play = () => {
     }
   }, [playCards]);
 
-  console.log("homeCard", homeCards);
-  console.log("playCards", playCards);
-  console.log("cards", cards);
+  // console.log("homeCard", homeCards);
+  // console.log("playCards", playCards);
+  // console.log("cards", cards);
+
+  const handleStart = () => {
+    console.log("handleStart");
+  };
+  const handleDrag = () => {
+    console.log("handleDrag");
+  };
+  const handleStop = () => {
+    console.log("handleStop");
+  };
 
   return (
-    <div className="Body">
-      <h3>Play Page</h3>
-      <div className="BodyMain">
-        <div className="CardSetWrap">
-          {homeCards.map((c, i) => {
-            return (
-              <div
-                className={`CardSet CardNo_${i}`}
-                key={i}>
-                {c &&
-                  c.map((cc, idx) => {
-                    return <CardContainer key={idx}>{cc}</CardContainer>;
-                  })}
-              </div>
-            );
-          })}
-        </div>
-        <div className="PlaySetWrap">
-          {playCards.map((c, i) => {
-            return (
-              <div
-                className="PlaySet"
-                key={i}>
-                {c &&
-                  c.map((cc, idx) => {
-                    return (
-                      <div className={`PlayCard CardNo_${idx}`}>
-                        <CardContainer key={idx}>{cc}</CardContainer>
-                      </div>
-                    );
-                  })}
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </div>
+    <section className="Body">
+      <article className="CardSetWrap">
+        {homeCards.map((c, i) => {
+          return (
+            <div
+              className={`CardSet CardNo_${i}`}
+              key={i}>
+              {c &&
+                c.map((cc, idx) => {
+                  return <CardContainer key={idx}>{cc}</CardContainer>;
+                })}
+            </div>
+          );
+        })}
+      </article>
+      <article className="PlaySetWrap">
+        {playCards.map((c, i) => {
+          return (
+            <div
+              className="PlaySet"
+              key={i}>
+              {c &&
+                c.map((cc, idx) => {
+                  return (
+                    <>
+                      {idx === c.length - 1 ? (
+                        <Draggable
+                          key={idx}
+                          bounds={[0,0,0,0]}
+                          onStart={handleStart}
+                          onDrag={handleDrag}
+                          onStop={handleStop}
+                          >
+                          <div className={`PlayCard CardNo_${idx}`}>
+                            <CardContainer key={idx}>{cc}</CardContainer>
+                          </div>
+                        </Draggable>
+                      ) : (
+                        <div className={`PlayCard CardNo_${idx}`}>
+                          <CardContainer key={idx}>{cc}</CardContainer>
+                        </div>
+                      )}
+                    </>
+                  );
+                })}
+            </div>
+          );
+        })}
+      </article>
+    </section>
   );
 };
 

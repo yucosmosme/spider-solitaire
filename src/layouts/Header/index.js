@@ -5,7 +5,7 @@ const Header = () => {
   const level = useAppSelector((s) => s.level.value);
 
   return (
-    <header className="Header">
+    <header>
       <Menu />
       <span>Level : {level} </span>
     </header>
